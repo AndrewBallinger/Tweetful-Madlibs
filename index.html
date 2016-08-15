@@ -4,21 +4,12 @@
   <head>
     <link rel="stylesheet" href="style.css">
     <script data-require="angular.js@1.3.10" data-semver="1.3.10" src="https://code.angularjs.org/1.3.10/angular.js"></script>
+    <script src="madlibsApp.js"></script>
   </head>
 
-  <body ng-app="" ng-init="fields={
-  'male_name' : { ph: 'male name', value: ''},
-  'dirty_task' : { ph: 'Dirty Task', value: ''},
-  'obnoxious_celebrity' : {  ph: 'Obnoxious celebrity', value: ''},
-  'job_title' : { ph: 'Job title', value: ''},
-  'celebrity' : { ph: 'Celebrity', value: ''},
-  'huge_number' : { ph: 'Huge number', value: ''},
-  'tedious_task' : { ph: 'Tedious task', value: ''},
-  'useless_skill' : { ph: 'Useless skill', value: ''},
-  'adjective': { ph: 'Adjective', value: ''}
-  }">
+  <body ng-app="madlibsApp">
 
-    <div class="content">
+    <div class="content" ng-controller="madlibsCtrl" >
     <header>
       <div class="logo-container">
         <img class="logo" src="logo.png" /></div>
