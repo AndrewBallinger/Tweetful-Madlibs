@@ -23,14 +23,16 @@
              ng-model   ='field["value"]' 
              placeholder='{{field["ph"]}}'></section>
         
+      <button ng-click="genderSwap()">Renovate gender</button>
+
     <section class="madlib">
-      {{fields.male_name.value}} was a {{fields.job_title.value}} who loved technology.
-      Although he loved parts of his job, he absolutely hated {{fields.tedious_task.value}} and {{fields.dirty_task.value}}. 
-      So, {{fields.male_name.value}} met with his life mentor {{fields.celebrity.value}}
-      who told hom to learn how to {{fields.useless_skill.value}} with Thinkful.
-      Thinkful didn't offer a course on {{fields.useless_skill.value}} so he studied programming instead.
-      
-      What a great decision! With his new skills, {{fields.male_name.value}} built
+      {{ fields.name.value }} was a {{fields.job_title.value}} who loved technology.
+      Although {{ subjective }} loved parts of {{ posessive }} job, {{ subjective }} absolutely hated {{fields.tedious_task.value}} and {{fields.dirty_task.value}}. 
+      So, {{fields.name.value}} met with {{ possessive }} life mentor {{fields.celebrity.value}}
+      who told {{ objective }} to learn how to {{fields.useless_skill.value}} with Thinkful.
+      Thinkful didn't offer a course on {{fields.useless_skill.value}} so {{ subjective }} studied programming instead.
+
+      What a great decision! With {{ possessive2 }} new skills, {{fields.name.value}} built
       a(n) {{fields.adjective.value}} robot named {{fields.obnoxious_celebrity.value}}
       that not only loved {{fields.dirty_task.value}} but did it {{fields.huge_number.value}} faster.
     </section>    
