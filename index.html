@@ -9,7 +9,7 @@
 
   <body ng-app="MadlibsApp">
 
-    <div class="content" ng-controller="MadlibsCtrl as ml" >
+    <div class="content" ng-controller="MadlibsCtrl as ml">
     <header>
       <div class="logo-container">
         <img class="logo" src="logo.png" /></div>
@@ -17,25 +17,34 @@
         <img class="topimage" src="topimage.png"/>
         <h1>Automate This!</h1></div></header>
         
-    <section class="form">
+    <section ng-show="ml.view == 'form'" class="form">
+    <form  ng-submit="ml.submit()">
       <h2>Provide the following words:</h2>
-      <input ng-repeat="field in ml.fields"
-             ng-model   ='field["value"]' 
-             placeholder='{{field["ph"]}}'></section>
+      <input ng-repeat   = "field in ml.fields"
+             ng-model    = 'field["value"]'
+             type        = '{{field["type"] || ""}}'
+             placeholder = '{{field["ph"]}}'
+             required >
         
-      <button ng-click="ml.genderSwap()">Renovate gender</button>
+      <select ng-model="ml.gender"
+ 	      ng-change="genderSwap"
+              ng-options="gender.name for gender in ml.genders"></select>
 
-    <section class="madlib">
+      <button>Generate My Mad Lib</button></form></section>
+
+
+    <section ng-show="ml.view=='madlib'" class="madlib">
       {{ ml.fields.name.value }} was a {{ml.fields.job_title.value}} who loved technology.
-      Although {{ subjective }} loved parts of {{ ml.posessive }} job, {{ ml.subjective }} absolutely hated {{ml.fields.tedious_task.value}} and {{ml.fields.dirty_task.value}}. 
-      So, {{ml.fields.name.value}} met with {{ ml.possessive }} life mentor {{ml.fields.celebrity.value}}
-      who told {{ ml.objective }} to learn how to {{ml.fields.useless_skill.value}} with Thinkful.
-      Thinkful didn't offer a course on {{ml.fields.useless_skill.value}} so {{ ml.subjective }} studied programming instead.
+      Although {{ gender.subj }} loved parts of {{ ml.posessive }} job, {{ ml.gender.subj }} absolutely hated {{ml.fields.tedious_task.value}} and {{ml.fields.dirty_task.value}}. 
+      So, {{ml.fields.name.value}} met with {{ ml.gender.poss }} life mentor {{ml.fields.celebrity.value}}
+      who told {{ ml.gender.obj }} to learn how to {{ml.fields.useless_skill.value}} with Thinkful.
+      Thinkful didn't offer a course on {{ml.fields.useless_skill.value}} so {{ ml.gender.subj }} studied programming instead.
 
-      What a great decision! With {{ ml.possessive2 }} new skills, {{ml.fields.name.value}} built
+      What a great decision! With {{ ml.gender.poss2 }} new skills, {{ml.fields.name.value}} built
       a(n) {{ml.fields.adjective.value}} robot named {{ml.fields.obnoxious_celebrity.value}}
       that not only loved {{ml.fields.dirty_task.value}} but did it {{ml.fields.huge_number.value}} faster.
-    </section>    
+
+    <div><button ng-click="ml.reset()">Reset</button></div></section>
   </div>
   </body>
 

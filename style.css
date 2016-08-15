@@ -73,3 +73,7 @@ header {
   border: 1px solid black;
   padding: 40px;
 }
+
+button {
+  float: right;
+}
