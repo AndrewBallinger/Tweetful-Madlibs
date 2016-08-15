@@ -7,9 +7,9 @@
     <script src="madlibsApp.js"></script>
   </head>
 
-  <body ng-app="madlibsApp">
+  <body ng-app="MadlibsApp">
 
-    <div class="content" ng-controller="madlibsCtrl" >
+    <div class="content" ng-controller="MadlibsCtrl as ml" >
     <header>
       <div class="logo-container">
         <img class="logo" src="logo.png" /></div>
@@ -19,22 +19,22 @@
         
     <section class="form">
       <h2>Provide the following words:</h2>
-      <input ng-repeat="field in fields"
+      <input ng-repeat="field in ml.fields"
              ng-model   ='field["value"]' 
              placeholder='{{field["ph"]}}'></section>
         
-      <button ng-click="genderSwap()">Renovate gender</button>
+      <button ng-click="ml.genderSwap()">Renovate gender</button>
 
     <section class="madlib">
-      {{ fields.name.value }} was a {{fields.job_title.value}} who loved technology.
-      Although {{ subjective }} loved parts of {{ posessive }} job, {{ subjective }} absolutely hated {{fields.tedious_task.value}} and {{fields.dirty_task.value}}. 
-      So, {{fields.name.value}} met with {{ possessive }} life mentor {{fields.celebrity.value}}
-      who told {{ objective }} to learn how to {{fields.useless_skill.value}} with Thinkful.
-      Thinkful didn't offer a course on {{fields.useless_skill.value}} so {{ subjective }} studied programming instead.
+      {{ ml.fields.name.value }} was a {{ml.fields.job_title.value}} who loved technology.
+      Although {{ subjective }} loved parts of {{ ml.posessive }} job, {{ ml.subjective }} absolutely hated {{ml.fields.tedious_task.value}} and {{ml.fields.dirty_task.value}}. 
+      So, {{ml.fields.name.value}} met with {{ ml.possessive }} life mentor {{ml.fields.celebrity.value}}
+      who told {{ ml.objective }} to learn how to {{ml.fields.useless_skill.value}} with Thinkful.
+      Thinkful didn't offer a course on {{ml.fields.useless_skill.value}} so {{ ml.subjective }} studied programming instead.
 
-      What a great decision! With {{ possessive2 }} new skills, {{fields.name.value}} built
-      a(n) {{fields.adjective.value}} robot named {{fields.obnoxious_celebrity.value}}
-      that not only loved {{fields.dirty_task.value}} but did it {{fields.huge_number.value}} faster.
+      What a great decision! With {{ ml.possessive2 }} new skills, {{ml.fields.name.value}} built
+      a(n) {{ml.fields.adjective.value}} robot named {{ml.fields.obnoxious_celebrity.value}}
+      that not only loved {{ml.fields.dirty_task.value}} but did it {{ml.fields.huge_number.value}} faster.
     </section>    
   </div>
   </body>

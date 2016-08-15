@@ -1,7 +1,8 @@
-angular.module('madlibsApp', [])
-  .controller('madlibsCtrl', function($scope){
+angular.module('MadlibsApp', [])
+  .controller('MadlibsCtrl', function(){
+     var ml = this;
 
-     $scope.fields = {
+     ml.fields = {
       'name' : { ph: 'name', value: ''},
       'dirty_task' : { ph: 'Dirty Task', value: ''},
       'obnoxious_celebrity' : {  ph: 'Obnoxious celebrity', value: ''},
@@ -13,26 +14,26 @@ angular.module('madlibsApp', [])
       'adjective': { ph: 'Adjective', value: ''}
     }
 
-   $scope.gender_words = [
+   ml.gender_words = [
       ["he", "him", "himself", "his", "his"],
       ["she", "her", "herself", "hers", "her"],
       ["it", "it", "itself", "its", "its"],
       ["ey", "em", "emself", "eirs", "eir"]
     ]
 
-    $scope.gender_index = 1;
+    ml.gender_index = 1;
 
-    [$scope.subjective, 
-     $scope.objective, 
-     $scope.reflexive, 
-     $scope.possessive
-     $scope.possessive2 ] = $scope.gender_words[0]
+    [ ml.subjective, 
+      ml.objective, 
+      ml.reflexive, 
+      ml.possessive,
+      ml.possessive2 ] = ml.gender_words[0]
 
-    $scope.genderSwap = function(){
-      [$scope.subjective, 
-       $scope.objective, 
-       $scope.reflexive, 
-       $scope.possessive,
-       $scope.possessive2] = $scope.gender_words[$scope.gender_index++ % $scope.gender_words.length];
+    ml.genderSwap = function(){
+      [ ml.subjective, 
+        ml.objective, 
+        ml.reflexive, 
+        ml.possessive,
+        ml.possessive2 ] = ml.gender_words[ml.gender_index++ % ml.gender_words.length];
     }
   });
