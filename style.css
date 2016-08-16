@@ -2,6 +2,8 @@
 
 body {
   font-family : "Comic Sans MS", cursive, sans-serif;
+  perspective: 2000px;
+  perspective-origin: 50% 50%;
 }
 
 .content {
@@ -76,4 +78,20 @@ header {
 
 button {
   float: right;
+}
+
+section {
+  background-color: white;
+  position: absolute;
+  width: 620px;
+  height: 350px;
+  transform-origin: left center 0px;
+  backface-visibility: none;
+}
+ 
+.ng-hide,
+.ng-hide-active {
+  transition: all ease-out 0.6s;
+  transform: rotateY(-260deg) ;
+  z-index: 100;
 }

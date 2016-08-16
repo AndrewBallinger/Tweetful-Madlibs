@@ -1,4 +1,4 @@
-angular.module('MadlibsApp', [])
+angular.module('MadlibsApp', ['ngAnimate'])
   .controller('MadlibsCtrl', function($scope){
      var ml = this;
 
